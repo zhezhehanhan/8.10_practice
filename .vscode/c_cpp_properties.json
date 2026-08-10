@@ -10,6 +10,7 @@
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\Drivers\\CMSIS\\Include",
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\hardware\\inc",
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\common\\inc",
+                "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\user\\Inc",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux_compat",
@@ -19,6 +20,7 @@
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\hardware\\src",
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\common\\src",
                 "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\Drivers\\STM32H7xx_HAL_Driver\\Src",
+                "c:\\Users\\326sqz423\\Downloads\\keil_proj_final-8.10H7\\keil_proj_final-8.10H7\\user\\Src",
                 "${default}"
             ],
             "defines": [

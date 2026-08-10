@@ -25,6 +25,7 @@
 #include "led.h"
 #include "buzzer.h"
 #include "command_pack_queue.h"
+#include "state_func.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,11 +47,13 @@
 
 /* USER CODE BEGIN PV */
 static packet_queue cmd_queue;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -103,14 +106,20 @@ int main(void)
   command_packet test_pkt;
   command_pack_create(&test_pkt, 3U, LED1_PIN | LED4_PIN);
   packet_queue_push(&cmd_queue, &test_pkt);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  while(1)
+  {
+    state_table[current_state]();
+  }
+
   while (1)
   {
     /* USER CODE END WHILE */
-
+     
     /* USER CODE BEGIN 3 */
     /* 出队 -> 解包 -> LED 执行 */
     command_packet recv_pkt;
