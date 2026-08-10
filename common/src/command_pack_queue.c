@@ -112,7 +112,21 @@ void command_pack_create(command_packet *pkt, uint8_t blink_count, uint8_t led_m
 /* TODO: 用位运算校验包头和校验和，解出闪烁次数与 LED 掩码 */
 bool command_pack_unpack(const command_packet *pkt, uint8_t *blink_count, uint8_t *led_mask)
 { 
-   
+    uint16_t header_pack=0U;
+    uint8_t CHECKSUM=0U;
+    header_pack|=((uint16_t) pkt->header[0]<<8U);
+    header_pack|=(pkt->header[1]<<0U);
+    CHECKSUM=PACKET_CHECKSUM(pkt->header[0], pkt->header[1], pkt->cmd);
+    if(header_pack==HEADER_WORD)
+    {
+        if(pkt->checksum==CHECKSUM)
+        {   *blink_count=(pkt->cmd>>4U);
+            *led_mask=(pkt->cmd&0x0F);
+            return true;
+        }
+        else{return false;}
+    }
+    else{return false;}
     /* 在此实现 */
 }
 
