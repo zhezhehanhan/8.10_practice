@@ -25,7 +25,7 @@ void packet_queue_init(packet_queue *q)
 /* TODO: 入队，成功返回 true，队列满返回 false */
 bool packet_queue_push(packet_queue *q, const command_packet *pkt)
 {
-    if(packet_queue_is_full(&q))
+    if(packet_queue_is_full(q))
     {
         q->count++;
         return false;
@@ -40,7 +40,7 @@ bool packet_queue_push(packet_queue *q, const command_packet *pkt)
 /* TODO: 出队，将数据写入 *pkt，成功返回 true，队列空返回 false */
 bool packet_queue_pop(packet_queue *q, command_packet *pkt)
 {
-    if( packet_queue_is_empty(&q))
+    if( packet_queue_is_empty(q))
     {
         return false;
     }
@@ -94,7 +94,7 @@ void command_pack_create(command_packet *pkt, uint8_t blink_count, uint8_t led_m
     pkt->header[1]=HEADER_LOW_BYTE;
     pkt->cmd=0U;
     pkt->cmd|=(blink_count<<4U);
-    pkt->cmd|=(led_mask<<0U);
+    pkt->cmd|=(led_mask>>3U);
     pkt->checksum=PACKET_CHECKSUM(pkt->header[0],pkt->header[1],pkt->cmd);
     /* 在此实现 */
 }
@@ -112,7 +112,7 @@ void command_pack_create(command_packet *pkt, uint8_t blink_count, uint8_t led_m
 /* TODO: 用位运算校验包头和校验和，解出闪烁次数与 LED 掩码 */
 bool command_pack_unpack(const command_packet *pkt, uint8_t *blink_count, uint8_t *led_mask)
 { 
-    
+   
     /* 在此实现 */
 }
 

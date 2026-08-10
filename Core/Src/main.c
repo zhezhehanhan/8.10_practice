@@ -101,7 +101,7 @@ int main(void)
   packet_queue_init(&cmd_queue);
 
   command_packet test_pkt;
-  command_pack_create(&test_pkt, 3U, LED_MASK_LED1 | LED_MASK_LED2);
+  command_pack_create(&test_pkt, 3U, LED1_PIN | LED4_PIN);
   packet_queue_push(&cmd_queue, &test_pkt);
   /* USER CODE END 2 */
 
