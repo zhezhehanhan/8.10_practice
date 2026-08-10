@@ -1,0 +1,26 @@
+# Keil MDK build outputs
+*.crf
+*.d
+*.o
+*.axf
+*.hex
+*.bin
+*.lnp
+*.lst
+*.map
+*.htm
+*.dep
+*.iex
+*.tra
+*.build_log.htm
+JLinkLog.txt
+JLinkSettings.ini
+
+# Keil user-specific GUI settings
+*.uvguix.*
+
+# CMSIS Pack RTE (generated)
+MDK-ARM/RTE/
+
+# Debug
+MDK-ARM/*.ini
